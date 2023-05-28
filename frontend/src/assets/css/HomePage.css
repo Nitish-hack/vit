@@ -1,0 +1,91 @@
+#home{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+
+.hero{
+    width: 30%;
+
+}
+.heroImage{
+    width: 100%;
+
+}
+.info{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    
+    flex-direction: column;
+}
+.container > h1{
+    padding-left: 10%;
+    height: 30%;
+    font-size: 3em;
+}
+.intro{
+    padding-left: 10%;
+    height: 33%;
+}
+.signUpSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+}
+.signUp{
+    width: 40%;
+    border:  2px solid rgb(93, 93, 255);
+    background-color: rgb(93, 93, 255);
+    color: white;
+    padding: 10px;
+    font-weight: bolder;
+    border-radius: 15px;
+}
+.signUp:hover{
+    background-color: white;
+    color: black;
+}
+.signIn{
+    /* background-color: brown; */
+    border:  2px solid rgb(93, 93, 255);
+    font-weight: bolder;
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+
+@media only screen and (max-width: 702px) {
+    .info{
+        height: fit-content;
+        width: 300px;
+    }
+    .hero{
+        width: 40%;
+        height: fit-content;
+    }
+  }
+
+@media only screen and (max-width: 502px) {
+    .info{
+        height: fit-content;
+        width: 300px;
+    }
+    .hero{
+        width: 60%;
+        height: fit-content;
+    }
+  }
