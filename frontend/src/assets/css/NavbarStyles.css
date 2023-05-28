@@ -1,0 +1,18 @@
+header{
+    display: flex;
+    justify-content:space-between;
+   height:10vh;
+    align-items:center;
+    border-bottom:2px solid rgb(204, 204, 204);
+}
+
+header .menuitems{
+    display: flex;
+    align-items:center;
+    column-gap: 20px;
+   
+}
+
+header .menuitems .user-icon{
+    font-size:40px;
+}
