@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
+const eventRoutes = require("./routes/event");
 
 const app = express();
 
@@ -24,8 +25,9 @@ mongoose
     console.log(err.message);
   });
 
-app.use("/api/auth", authRoutes); //remove this when you add your own route its just for taking idea
-//cerate a similar route for student and teacher  app.use("/student",studentRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/event",eventRoutes);
+
 
 
 const server = app.listen(process.env.PORT, () =>
