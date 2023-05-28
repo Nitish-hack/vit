@@ -37,9 +37,9 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  registeredUsers: [{
+  registeredStudents: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'Student'
   }],
   createdAt: {
     type: Date,

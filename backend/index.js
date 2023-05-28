@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const authRoutes = require("./routes/auth");
+
 const eventRoutes = require("./routes/event");
+const studentRoutes = require("./routes/student");
 
 const app = express();
 
@@ -25,7 +26,7 @@ mongoose
     console.log(err.message);
   });
 
-app.use("/api/auth", authRoutes);
+app.use("/api/student", studentRoutes);
 app.use("/api/event",eventRoutes);
 
 
