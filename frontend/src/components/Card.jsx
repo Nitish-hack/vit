@@ -17,7 +17,7 @@ const Card = ({ title, date, description, users, category, image }) => {
   };
 
   return (
-    <CardContainer>
+    <CardContainer> 
       <ImageContainer>
         <img src={image} alt='eventimage' />
       </ImageContainer>
