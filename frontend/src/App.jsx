@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
 import Dashboard from "./pages/Dashboard";
+import SignPage from "./pages/SignPage";
 
 import "./App.css";
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
          <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/SignPage" element={<SignPage />} />
           <Route path="/events" element={<Events />} />
           <Route path="/dashboard/student" element={<Dashboard />} />
 
