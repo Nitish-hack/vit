@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
+import EventDetails from "./pages/EventDetails";
 import Dashboard from "./pages/Dashboard";
 import SignPage from "./pages/SignPage";
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignPage />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/eventdetails" element={<EventDetails />} />
           <Route path="/dashboard/student" element={<Dashboard />} />
 
         </Routes>
