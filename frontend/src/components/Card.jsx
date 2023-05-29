@@ -28,7 +28,7 @@ const Card = ({ title, date, description, users, category, image }) => {
           <div className='stats-item'><AiOutlineUser /> {users}</div>
         <div className='stats-item'><AiFillCalendar /> {calculateDaysLeft()} days left</div>
         </div>
-        <Button>Apply now</Button>
+        <Button >Apply now</Button>
       </ContentContainer>
     </CardContainer>
   );

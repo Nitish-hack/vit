@@ -13,11 +13,9 @@ const HomePage = () => {
                         <div className="intro">Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga asperiores placeat deserunt minus dolor iste veritatis sed eum reiciendis perspiciatis. consectetur adipisicing elit. Reprehenderit ipsam quis labore mollitia similique maxime animi officia, velit nobis esse?</div>
                         <div className="signUpSection">
                             <button className="signUp">
-                                <Link to="/SignPage">Sign Up</Link>
+                                <Link to="/signup">Login/Register</Link>
                             </button>
-                            <button className="signIn">
-                                <Link to="/SignPage">Sign In</Link>
-                            </button>
+                        
                         </div>
 
                         

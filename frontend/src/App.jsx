@@ -15,7 +15,7 @@ export default function App() {
          <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/SignPage" element={<SignPage />} />
+          <Route path="/signup" element={<SignPage />} />
           <Route path="/events" element={<Events />} />
           <Route path="/dashboard/student" element={<Dashboard />} />
 
