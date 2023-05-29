@@ -1,0 +1,30 @@
+
+.CardMain{
+    padding: 10px;
+}
+
+.CardMain section{
+    border-bottom: 2px ;
+    border-color: grey;
+    padding: 20px 0px;
+}
+.CardMain :nth-child(4){
+    border-bottom: 0px ;
+    padding: 20px 0px;
+}
+.heading{
+    padding-bottom: 20px;
+    border-bottom: 2px ;
+    border-color: grey;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px ;
+    border-color: grey;
+}
+.SubInfo{
+    width: 50%;
+}
