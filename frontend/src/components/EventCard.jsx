@@ -6,7 +6,7 @@ const Data=
       "_id": "6472e74c38678d461000b911",
       "title": "Hackathon Workshop",
       "description": "Learn how to build APIs and test them",
-      "date": "2023-06-01T00:00:00.000Z",
+      "date": "2023-06-01",
       "time": "14:00",
       "location": "Conference Room A",
       "category": "Workshop",
@@ -22,7 +22,7 @@ const EventCard = () => {
   return (
 
 <div className='CardMain'>
-    <h3 className="heading">Data.</h3>
+    <h3 className="heading">Datails</h3>
     <section className="info">
         <div className="SubInfo">Data.method</div>         
         <div className="SubInfo">{Data.location}</div>         
