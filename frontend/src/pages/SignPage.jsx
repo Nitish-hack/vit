@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AccountBox } from "../components/authentication/accountBox";
+import { AccountBox } from "../components/authentication/accountBox/AccountBox";
 
 const AppContainer = styled.div`
   width: 100%;

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {
-  BoldLink,
+  BottomText,
   BoxContainer,
   FormContainer,
   Input,
@@ -24,12 +24,7 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin="1.6em" />
       <SubmitButton type="submit">Signin</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="#">
-        Don't have an accoun?{" "}
-        <BoldLink href="#" onClick={switchToSignup}>
-          Signup
-        </BoldLink>
-      </MutedLink>
+      <BottomText>Don't have and account? <span onClick={switchToSignup}>Signup</span></BottomText>
     </BoxContainer>
   );
 }

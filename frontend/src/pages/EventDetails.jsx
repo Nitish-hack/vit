@@ -1,3 +1,4 @@
+
 import React from 'react';
 import "../assets/css/EventDetailsStyles.css";
 import EventCard from '../components/EventCard';
@@ -44,3 +45,4 @@ const EventDetails = () => {
 }
 
 export default EventDetails
+
