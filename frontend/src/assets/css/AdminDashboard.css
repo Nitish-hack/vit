@@ -1,0 +1,83 @@
+.Dashboard{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.leftContainer{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.leftContainer button {
+    background-color: rgb(241 241 241);
+    box-shadow: 5px 10px 10px 0px rgb(215 215 215);
+    width: 90%;
+    margin: 5%;
+    padding: 5% 0%;
+    border-radius: 20px;
+}
+
+.leftContainer button:hover {
+    background-color: rgb(9, 255, 0);
+}
+
+.eventBtn{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5%;
+    padding: 5% 2%;
+}
+
+.rightContainer{
+    border-left: 2px solid rgb(197, 197, 197);
+    width: 80%;
+    height: 100%;
+}
+
+.AllEventsList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.subCard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.subCard div{
+    margin:4%;
+}
+
+@media only screen and  (max-width : 700px) {
+    .Dashboard{
+        flex-direction: column;
+    }
+    .leftContainer{
+        border-bottom: 2px solid rgb(197, 197, 197);
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .rightContainer{
+        border-left: 0px;
+        width: 100%;
+    }
+    .leftContainer button {
+        padding: 1% 0%;
+        border-radius: 0px;
+    }
+    .eventBtn{
+        padding: 1% 2%;
+    }
+}
