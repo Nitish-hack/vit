@@ -2,8 +2,8 @@ export const host = "http://localhost:5000";
 
 //student routes
 export const loginRoute = `${host}/api/student/login`;
-export const registerRoute = `${host}/api/student/register`;
-
+export const signupRoute = `${host}/api/student/signup`;
+export const verifyRoute= `${host}/api/student/verifytoken`;
 
 
 

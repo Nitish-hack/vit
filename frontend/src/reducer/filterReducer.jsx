@@ -1,7 +1,7 @@
 const FilterReducer = (state, action) => {
     switch (action.type) {
         case "LOAD_FILTER_EVENTS":
-         console.log(action.payload);
+        
         return {
           ...state,
           filter_events: [...action.payload],
@@ -23,7 +23,7 @@ const FilterReducer = (state, action) => {
       
         let { all_events } = state;
        
-        console.log(all_events);
+        // console.log(all_events);
         let tempFilterEvent = [...all_events];
   
         const { category} = state.filters;

@@ -5,13 +5,21 @@ import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 import { useMediaQuery } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
-
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
   const playExpandingAnimation = () => {
     setExpanded(true);
     setTimeout(() => {
@@ -78,10 +86,11 @@ const backdropVariants = {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
-          {active === "signup" && <SignupForm />}
+          {active === "signin" && <LoginForm toast={toast}  toastOptions={toastOptions}/>}
+          {active === "signup" && <SignupForm toast={toast} toastOptions={toastOptions}/>}
         </InnerContainer>
       </BoxContainer>
+      <ToastContainer />
     </AccountContext.Provider>
   );
 }

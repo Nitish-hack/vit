@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import heroimg from '../assets/images/hero.jpg'
 import '../assets/css/HomePage.css';
 import styled from "styled-components"
@@ -6,6 +6,17 @@ import {  useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
     const navigate=useNavigate();
+    const [islogegdIn,setLoggedin]=useState(false);
+   
+
+    const handleClick=()=>{
+if(localStorage.getItem("user")){
+navigate("/dashboard/student");
+}
+else{
+    navigate("/signup")
+}
+    }
     return (
         <>
             <section id="home">
@@ -14,8 +25,8 @@ const HomePage = () => {
                         <h1>VITcompanion</h1>
                         <p >Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga asperiores placeat deserunt minus dolor iste veritatis sed eum reiciendis perspiciatis. consectetur adipisicing elit. Reprehenderit ipsam quis labore mollitia similique maxime animi officia, velit nobis esse?</p>
                         <div className="signUpSection">
-                            <Button onClick={()=>navigate("/signup")}>
-                            Login / Register
+                       <Button onClick={handleClick}>
+                           Explore
                            </Button>
                         
                         </div>
