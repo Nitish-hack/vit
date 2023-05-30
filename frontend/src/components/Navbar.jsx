@@ -9,7 +9,7 @@ const Navbar =()=>{
   <h2 className="logo"><Link to="/">VITcompanion</Link></h2>
   <div className="menuitems">
    <Link to="/events">Events</Link>
-   <Link className="user-icon" to="/dashboard/student"><MdAccountCircle /></Link>
+   <Link className="user-icon" to="/dashboard/admin"><MdAccountCircle /></Link>
   </div>
 </header> 
  );
