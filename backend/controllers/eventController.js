@@ -1,21 +1,21 @@
 const Event = require("../models/eventModel");
-
+const fs = require('fs');
+const path = require('path');
 module.exports.addEvent = async (req, res) => {
  try {
-    const { title, description, date, time, location, category, organizer, image, registrationLink,technologies } = req.body;
-
+    const { title, description, date, location, category, organizer,  technologies} = req.body;
+  const imageurl=req.file.path;
+const image='http://localhost:5000/'+imageurl;
     // Create a new event object
     const newEvent = new Event({
       title,
       description,
       date,
-      time,
       location,
       technologies,
-      category,
+      category, 
       organizer,
       image,
-      registrationLink
     });
 
     // Save the new event to the database
@@ -41,16 +41,17 @@ module.exports.getAllEvents = async (req, res) => {
 
 module.exports.getEvent = async (req, res) => {
   try {
-    const { eventId } = req.body;
-
+    const {eventId} = req.body;
+    const id=eventId.eventId;
     // Retrieve the event from the database based on the eventId
-    const event = await Event.findById(eventId);
-
+    const event = await Event.findById(id);
+  
+  
     if (!event) {
       return res.status(404).json({ error: 'Event not found' });
     }
 
-    res.status(200).json(event);
+    res.status(200).json({event:event});
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch the event' });
   }

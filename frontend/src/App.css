@@ -5,9 +5,35 @@
   font-family: 'Josefin Sans', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* width */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: aliceblue;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #7beaa4;
+  border-radius:10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #32b662;
+}
+
+
 .app{
   display:flex;
+ 
   justify-content: center;
+  min-height:100vh;
+  /* background-color: aliceblue; */
 }
 .content{
   width:85vw;

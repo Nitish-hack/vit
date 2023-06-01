@@ -36,6 +36,7 @@ export function LoginForm({toast,toastOptions}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try{
     if (validateForm()) {
       const { rollNumber, password } = values;
       const response = await axios.post(loginRoute, {
@@ -48,19 +49,25 @@ export function LoginForm({toast,toastOptions}) {
       }
      else {
       const {data}=response;
+ 
+
         localStorage.setItem(
-          "user",
-          JSON.stringify(data.user)
+          "vit-data",
+          JSON.stringify(data)
         );
         navigate("/");
       }
     }
+  }
+  catch(error) {
+    toast.error("invalid credentials", toastOptions);
+  }
   };
 
   return (
     <BoxContainer>
       <FormContainer action="" onSubmit={(event)=>handleSubmit(event)}>
-        <Input type="number" placeholder="Roll Number" name="rollNumber" onChange={(e) => handleChange(e)} />
+        <Input type="number" placeholder="10 Digit Roll Number or Admin Id" name="rollNumber" onChange={(e) => handleChange(e)} />
         <Input type="password" placeholder="Password" name="password" onChange={(e) => handleChange(e)}/>
       <SubmitButton type="submit">Signin</SubmitButton>
       </FormContainer>

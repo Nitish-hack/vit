@@ -1,9 +1,10 @@
 #home{
-    height: 90vh;
+  
     display: flex;
     width:100%;
     align-items: center;
     flex-wrap: wrap-reverse;
+    min-height:70vh;
 }
 
 .hero{
@@ -32,19 +33,73 @@
 .container > h1{
     font-size: 3em;
 }
-/* .container p{
-    line-height: 10px;
-} */
+.container p{
+    line-height: 1.5;
+}
+
+
+
+/* stlying of about sectio;n */
+
+.about-section{
+    padding:50px 0;
+   
+    display:flex;
+    column-gap: 1%;
+}
+
+.about-section .imageContainer{
+    width:40%;
+}
+.imageContainer img{
+    width:100%;
+    border-radius:20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.about-section .about-content{
+    width:59%;
+   line-height: 1.5;
+    background-color: aliceblue;
+    padding:10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    border-radius: 20px;;
+    flex-direction: column;
+    row-gap:10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
 
 
 
 @media only screen and (max-width: 1100px) {
+    .about-section{
+        flex-direction:column;
+        row-gap:10px;
+        align-items: center;
+    }
+    .about-section .about-content{
+        text-align: center;
+        padding:20px 10px;
+        width:100%;
+    }
+    .about-section .imageContainer{
+        width:80%;
+    }
     .container{
         align-items: center;
     }
+    .hero{
+        display:flex;
+        justify-content:center;
+    }
     .hero img{
         width:60%;
-        margin:auto;
+      
     }
  
     .container button{
@@ -62,6 +117,14 @@
   }
 
   @media screen and (max-width:700px){
+    .hero img{
+        width:80%;
+    }
+    .about-section .imageContainer{
+        width:100%;
+    }
+  }
+  @media screen and (max-width:500px){
     .hero img{
         width:90%;
     }

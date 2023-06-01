@@ -15,9 +15,11 @@ const AppContainer = styled.div`
 function SignPage() {
   const navigate=useNavigate();
   useEffect(() => {
-   if(localStorage.getItem("user")){
-    navigate("/");
-   }
+    const data=localStorage.getItem("vit-data");
+    if(data){
+       navigate("/")
+    }
+   
   }, []);
   return (
     <AppContainer>

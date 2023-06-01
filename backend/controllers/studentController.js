@@ -63,28 +63,33 @@ module.exports.login = async (req, res) => {
     // Create and sign a JWT token
     const token = jwt.sign(
       { studentId: student._id },
-      'mysecretkeyislol',
+      process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
     // Send the token in the response as "user"
-    res.status(200).json({ user: token });
+    res.status(200).json({ user: token,isAdmin:student.isAdmin,registeredEvents:student.registeredEvents});
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
   }
 };
 
 
+
 module.exports.registerForEvent = async (req, res) => {
   try {
-    const { eventId, studentId } = req.body;
+    const { eventId, token } = req.body;
+
+    // Verify the token and retrieve the student ID
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const studentId = decodedToken.studentId;
 
     // Find the event by its ID
     const event = await Event.findById(eventId);
 
     // Check if the event exists
     if (!event) {
-      return res.status(404).json({ error: 'Event not found' });
+      return res.json({ status:"false",error: 'Event not found' });
     }
 
     // Find the student by their ID
@@ -92,12 +97,13 @@ module.exports.registerForEvent = async (req, res) => {
 
     // Check if the student exists
     if (!student) {
-      return res.status(404).json({ error: 'Student not found' });
+     return res.json({ status:"false",error: 'Student not found' });
     }
 
     // Check if the student is already registered for the event
     if (student.registeredEvents.includes(eventId)) {
-      return res.status(400).json({ error: 'Student is already registered for this event' });
+      return res.json({ status:"false",error: 'Student is already registered for this event' });
+     
     }
 
     // Add the event ID to the student's registeredEvents array
@@ -110,9 +116,11 @@ module.exports.registerForEvent = async (req, res) => {
     await student.save();
     await event.save();
 
-    res.status(200).json({ message: 'Student registered for the event successfully' });
+return res.json({ status:"true",message:'Student registered for the event successfully'});
+
   } catch (error) {
-    res.status(500).json({ error: 'Failed to register student for the event' });
+    
+return res.json({ status:"false", error:'Failed to register student for the event' });
   }
 };
 
@@ -129,27 +137,6 @@ module.exports.getAllUsers = async (req, res) => {
   }
 };
 
-module.exports.getRegisteredEvents = async (req, res) => {
-  const { studentId } = req.params;
-
-  try {
-    // Find the student by their ID
-    const student = await Student.findById(studentId);
-
-    // Check if the student exists
-    if (!student) {
-      return res.status(404).json({ error: 'Student not found' });
-    }
-
-    // Fetch the registered events for the student
-    const registeredEvents = await Event.find({ _id: { $in: student.registeredEvents } });
-
-    res.status(200).json({ registeredEvents });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch registered events' });
-  }
-};
-
 
 module.exports.verifyToken = async (req, res) => {
 
@@ -161,7 +148,7 @@ module.exports.verifyToken = async (req, res) => {
 
   try {
     // Verify the token
-    const decoded = jwt.verify(token, 'mysecretkeyislol');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const studentId = decoded.studentId;
 
     // Find the student by ID
@@ -171,10 +158,42 @@ module.exports.verifyToken = async (req, res) => {
       return res.status(401).json({ error: 'Student not found.' });
     }
 
-      res.status(200).json({ student });
+      res.status(200).json({message: "token validated "});
 
   } catch (error) {
     res.status(401).json({ error: 'Invalid token.' });
   }
 };
 
+
+
+
+module.exports.getStudentRegisteredEvents = async (req, res) => {
+
+  const { token } = req.body;
+
+  try {
+    // Verify the JWT token
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    // Extract the student ID from the decoded token
+    const { studentId } = decodedToken;
+
+    // Find the student by their ID
+    const student = await Student.findById(studentId);
+
+    // Check if the student exists
+    if (!student) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+
+    // Retrieve the student's registered event IDs
+    const registeredEventIds = student.registeredEvents;
+
+    // Find the registered events by their IDs
+    const registeredEvents = await Event.find({ _id: { $in: registeredEventIds } });
+
+    res.status(200).json({events:registeredEvents });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch registered events' });
+  }
+};

@@ -1,53 +1,62 @@
-.Dashboard{
-    height: max-content;
+.dash-Dashboard{
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+   
 }
 
-.leftContainer{
+.dash-leftContainer{
     width: 20%;
     height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    
+    padding:10px 0;
+    padding-top:20px;
+   
 }
-.leftContainer button {
-    background-color: rgb(241 241 241);
-    box-shadow: 5px 10px 10px 0px rgb(215 215 215);
+.dash-leftContainer button {
+    font-size:15px; 
+    color:black;
+    letter-spacing: 2px;
+    border:none;
+    outline: none;
+    margin-top:10px;
+    font-weight:bolder;
+    background-color: rgb(222, 231, 231);
     width: 90%;
-    margin: 5%;
     padding: 5% 0%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
-.leftContainer button:hover {
-    background-color: rgb(9, 255, 0);
+.dash-leftContainer button:hover {
+    background-color: aliceblue;
 }
 
-.eventBtn{
+.dash-eventBtn{
     box-sizing: border-box;
     width: 100%;
     padding: 5%;
+
     padding: 5% 2%;
 }
 
-.rightContainer{
-    border-left: 2px solid rgb(197, 197, 197);
+.dash-rightContainer{
+   
     width: 80%;
     height: 100%;
 }
 
-.AllEventsList{
+.dash-AllEventsList{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.subCard{
+.dash-subCard{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -55,29 +64,33 @@
     flex-wrap: wrap;
 }
 
-.subCard div{
+.dash-subCard div{
     margin:4%;
 }
 
 @media only screen and  (max-width : 700px) {
-    .Dashboard{
+    .dash-Dashboard{
         flex-direction: column;
     }
-    .leftContainer{
-        border-bottom: 2px solid rgb(197, 197, 197);
+    .dash-leftContainer{
+        border-bottom: 2px solid rgb(223, 217, 217);
+      height:auto;
+        column-gap:10px;
         width: 100%;
         flex-direction: row;
         justify-content: space-evenly;
+        margin-bottom:10px;
     }
-    .rightContainer{
+    .dash-rightContainer{
         border-left: 0px;
         width: 100%;
+     
     }
-    .leftContainer button {
-        padding: 1% 0%;
+    .dash-leftContainer button {
+        padding: 10px 0%;
         border-radius: 0px;
     }
-    .eventBtn{
+    .dash-eventBtn{
         padding: 1% 2%;
     }
 }

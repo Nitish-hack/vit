@@ -9,14 +9,16 @@ header{
 header .menuitems{
     display: flex;
     align-items:center;
-    column-gap: 20px;
+    column-gap: 10px;
    
 }
 
 header .menuitems .user-icon{
     font-size:40px;
+    cursor: pointer;
 }
 a{
     text-decoration: none;
+    font-weight: bold;
     color:black;
 }

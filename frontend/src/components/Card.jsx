@@ -1,34 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import {AiOutlineUser,AiFillCalendar} from "react-icons/ai"
+import calculateDaysLeft from '../helpers/CalculateDaysLeft';
+import { useNavigate } from 'react-router-dom';
 
-const Card = ({ title, date, description, users, category, image }) => {
-  const calculateDaysLeft = () => {
-    const eventDate = new Date(date);
-    const currentDate = new Date();
-
-    // Calculate the difference in milliseconds between the event date and current date
-    const timeDifference = eventDate.getTime() - currentDate.getTime();
-
-    // Convert milliseconds to days
-    const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-
-    return daysLeft;
-  };
-
+const Card = ({ title, date, users, image,eventId }) => {
+const navigate=useNavigate();
   return (
     <CardContainer> 
       <ImageContainer>
-        <img src={image} alt='eventimage' />
+        <img className='banner' src={image} alt='eventimage' />
       </ImageContainer>
 
       <ContentContainer>
         <h3>{title}</h3>
         <div className="stats">
           <div className='stats-item'><AiOutlineUser /> {users}</div>
-        <div className='stats-item'><AiFillCalendar /> {calculateDaysLeft()} days left</div>
+        <div className='stats-item'><AiFillCalendar /> {calculateDaysLeft(date)} days left</div>
         </div>
-        <Button >Apply now</Button>
+        <Button onClick={()=>navigate("/eventdetails/"+eventId)}>View Details</Button>
       </ContentContainer>
     </CardContainer>
   );
@@ -39,7 +29,7 @@ export default Card;
 const CardContainer = styled.div`
   width: 350px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
- 
+ border-radius:20px;
   @media screen and (max-width:860px){
     width: 270px;
 }
@@ -53,9 +43,17 @@ const CardContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  img {
-    width: 100%;
-  }
+height:170px;
+
+ 
+ .banner{
+  border-top-right-radius:20px;
+  border-top-left-radius:20px;
+  object-fit:cover;
+  height:100%;
+  width:100%;
+ }
+
 `;
 
 const ContentContainer = styled.div`

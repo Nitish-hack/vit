@@ -20,6 +20,10 @@ const studentSchema = new mongoose.Schema({
     required: true,
     min: 8,
   },
+   isAdmin: {
+    type: Boolean,
+    default: false
+  },
   registeredEvents: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -11,8 +11,6 @@ const initialState={
     isLoading:true,
     isError:false,
     events:[],
-    isSingleLoading:false,
-    singleEvent:{},
    
 };
  
@@ -32,22 +30,7 @@ const AppProvider=({children})=>{
     }
 
 
-    //api call for single product data
-    const getSingleEvent=async(eventId)=>{
-      dispatch({type:"SET_SINGLE_LOADING"});
-      try {
-         const res=await axios.get(singleEventsRoute,{eventId});      
-         const singleEvent=await res.data;
-        
-
-       dispatch({type:"SET_SINGLE_EVENT",payload:singleEvent});
-
-  
-      } catch (error) {
-        dispatch({type:"SET_SINGLE_ERROR"}); 
-      }
-    }
-
+   
 useEffect(()=>{
 
   getEvents();
@@ -55,7 +38,7 @@ useEffect(()=>{
 },[])
 
 return (
-<AppContext.Provider value={{...state,getSingleEvent}}>{children}</AppContext.Provider>
+<AppContext.Provider value={{...state}}>{children}</AppContext.Provider>
 );
 }
 

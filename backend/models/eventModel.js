@@ -15,7 +15,7 @@ const eventSchema = new mongoose.Schema({
   },
   time: {
     type: String,
-    required: true
+  
   },
   location: {
     type: String,
@@ -39,7 +39,7 @@ const eventSchema = new mongoose.Schema({
   },
   registrationLink: {
     type: String,
-    required: true
+
   },
   registeredStudents: [{
     type: mongoose.Schema.Types.ObjectId,

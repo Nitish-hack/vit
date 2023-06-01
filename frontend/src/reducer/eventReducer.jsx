@@ -6,6 +6,7 @@ const eventReducer = (state,action) => {
                 ...state,
                 isLoading:true,
             }
+       
           
     
             case "SET_API_DATA": 
@@ -14,7 +15,7 @@ const eventReducer = (state,action) => {
                     isLoading:false,
                     events:action.payload,
                 }
-                
+          
 
         case "API_ERROR":
             return {
@@ -22,28 +23,7 @@ const eventReducer = (state,action) => {
                 isError:true,
                 isLoading:false,
             }
-           
-            case "SET_SINGLE_LOADING":
-            return {
-                ...state,
-                isSingleLoading:true,
-            }
-           
-           
-            case "SET_SINGLE_PRODUCT":
-                return {
-                    ...state,
-                    isSingleLoading:false,
-                    singleEvent:action.payload
-                }
-
-                
-        case "SET_SINGLE_ERROR":
-            return {
-                ...state,
-                isError:true,
-                isSingleLoading:false,
-            }
+       
         default:
             return state;
     }

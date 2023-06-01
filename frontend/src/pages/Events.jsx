@@ -27,13 +27,14 @@ useEffect(() => {
     <EventContainer>
     <img src={eventgif} alt='heroevent' />
     <div className="categories">
-      <Button style={{ background: clickedButton === 0 ? "#5dbea3" : "" }}  onClick={()=>{setClicked(0)}}>Technology</Button>
-      <Button style={{ background: clickedButton === 1 ? "#5dbea3" : "" }} onClick={()=>{setClicked(1)}}>Others</Button>
+      <Button style={{ background: clickedButton === 0 ? "#7beaa4" : "aliceblue" }}  onClick={()=>{setClicked(0)}}>Technology</Button>
+      <Button style={{ background: clickedButton === 1 ? "#7beaa4" : "aliceblue" }} onClick={()=>{setClicked(1)}}>Others</Button>
     </div>
     {isLoading ?  <Wrapper><img style={{height:"300px",width:"350px"}} src={loading} alt='...loading'/> </Wrapper>: 
    <Wrapper>
+   {filter_events.length===0 && <h2>No events going on!</h2>}
    {filter_events.map((item,index)=>{
-   return <Card key={index} image={item.image} title={item.title} date={item.date} users={8920} category={item.category} description={item.description} eventid={item._id} />
+   return <Card key={index} image={item.image} title={item.title} date={item.date} users={item.registeredStudents.length} eventId={item._id}  />
    })}
    </Wrapper>
     }
@@ -55,6 +56,7 @@ justify-content:center;
 `
 const EventContainer=styled.div`
 width:100%;
+padding-bottom:30px;
 img{
   width:100%;
 }
@@ -73,8 +75,8 @@ const Button = styled.button`
   width:48%;
   padding:10px 0;
   font-size:20px;
-  outline:none;
-  border:1px solid green;
+  
+  border:none;
 
   color:black;
   border-radius:10px;

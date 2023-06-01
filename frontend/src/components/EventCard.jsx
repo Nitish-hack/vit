@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/EventCardStyles.css';
+// import '../assets/css/EventCardStyles.css';
 
 const Data=
     {
@@ -21,19 +21,19 @@ const EventCard = () => {
 
   return (
 
-<div className='CardMain'>
-    <h3 className="heading">Datails</h3>
-    <section className="info">
-        <div className="SubInfo">Data.method</div>         
-        <div className="SubInfo">{Data.location}</div>         
+<div classsName='eventpageCardMain'>
+    <h3 classsName="eventpageheading">Datails</h3>
+    <section classsName="eventpageinfo">
+        <div classsName="eventpageSubInfo">Data.method</div>         
+        <div classsName="eventpageSubInfo">{Data.location}</div>         
     </section>
-    <section className="info">
-        <div className="SubInfo">{Data.date}</div>         
-        <div className="SubInfo">{Data.time}</div>         
+    <section classsName="eventpageinfo">
+        <div classsName="eventpageSubInfo">{Data.date}</div>         
+        <div classsName="eventpageSubInfo">{Data.time}</div>         
     </section>
-    <section className="info">
-        <div className="SubInfo">{Data.category}</div>         
-        <div className="SubInfo">{Data.organizer}</div>         
+    <section classsName="eventpageinfo">
+        <div classsName="eventpageSubInfo">{Data.category}</div>         
+        <div classsName="eventpageSubInfo">{Data.organizer}</div>         
     </section>
 
  

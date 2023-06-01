@@ -64,6 +64,7 @@ export function SignupForm({toast,toastOptions}) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try{
     if (handleValidation()) {
       const { email, name, password ,rollNumber} = values;
       const response = await axios.post(signupRoute, {
@@ -83,6 +84,10 @@ export function SignupForm({toast,toastOptions}) {
         switchToSignin();
       }
     }
+  }
+  catch(error){
+    toast.error("something went wrong");
+  }
   };
 
   return (
@@ -91,7 +96,7 @@ export function SignupForm({toast,toastOptions}) {
       <FormContainer action="" onSubmit={(event)=>handleSubmit(event)}>
         <Input type="text" placeholder="Full Name" name="name" onChange={(e)=>handleChange(e)}/>
         <Input type="email" placeholder="Email" name="email" onChange={(e)=>handleChange(e)} />
-        <Input type="number" placeholder="Roll Number" name="rollNumber" onChange={(e)=>handleChange(e)}/>
+        <Input type="number" placeholder="10 Digit Roll Number or Admin Id" name="rollNumber" onChange={(e)=>handleChange(e)}/>
         <Input type="password" placeholder="Password" name="password" onChange={(e)=>handleChange(e)}/>
         <Input type="password" placeholder="Confirm Password" name="confirmpassword" onChange={(e)=>handleChange(e)}/>
       <SubmitButton type="submit">Signup</SubmitButton>
