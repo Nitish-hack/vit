@@ -1,4 +1,5 @@
-export const host = "http://localhost:5000";
+//export const host = "http://localhost:5000";
+export const host = "https://vitcompanionbackend.onrender.com";
 
 //student routes
 export const loginRoute = `${host}/api/student/login`;
